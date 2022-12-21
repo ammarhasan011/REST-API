@@ -1,10 +1,16 @@
 const express = require('express');
 //const color = require('color');
 const app = express();
+const port = 3000
 
+app.get('/', function (req, res) { res.send('Helloo worldd') });
+app.get('/api/products', () => { })
 
-app.listen(3000, () => console.log('Server is up, your innnn!'));
+app.post(() => { })
 
-// app.get('/api/products', () => { })
+app.listen(port, () => console.log('Server is up, your innnn!'));
 
-app.get('/', function (req, res) { res.send('Helloo worldd123') });
+// get
+// delete
+// put
+// post
