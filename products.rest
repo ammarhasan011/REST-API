@@ -1,7 +1,21 @@
-GET http://localhost:3000/api/product
+GET http://localhost:3000/api/products
 
 ###
-# get
-# delete
-# put
-# post
+
+GET http://localhost:3000/api/products/:id
+
+###
+
+
+
+
+
+PUT http://localhost:3000/api/products/:id
+
+###
+
+DELETE http://localhost:3000/api/products/:id
+###
+
+POST http://localhost:3000/api/products/:id
+###
