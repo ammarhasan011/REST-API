@@ -1,21 +1,22 @@
 GET http://localhost:3000/api/products
-
-###
-
-GET http://localhost:3000/api/products/:id
-
+//kollar alla mina produkter  
 ###
 
 
-
-
-
-PUT http://localhost:3000/api/products/:id
-
+GET http://localhost:3000/api/products/1
+//kolla bara en id
 ###
 
-DELETE http://localhost:3000/api/products/:id
-###
 
 POST http://localhost:3000/api/products/:id
+//Lägg till en id
+###
+
+
+DELETE http://localhost:3000/api/products/1
+//Ta bort en id
+###
+
+PUT http://localhost:3000/api/products/:id
+//uppdatera in en id 
 ###
