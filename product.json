@@ -3,18 +3,28 @@
         "id": 1,
         "name": "Ammar",
         "lastname": "Hasan",
-        "age": "22"
+        "age": "22",
+        "längd": "170"
     },
     {
         "id": 2,
-        "name": "Hej",
-        "lastname": "Hasan",
-        "age": "22"
+        "name": "Erik",
+        "lastname": "Andersson",
+        "age": "32",
+        "längd": "180"
     },
     {
         "id": 3,
-        "name": "då",
-        "lastname": "Hasan",
-        "age": "22"
+        "name": "Jack",
+        "lastname": "Johansson",
+        "age": "44",
+        "längd": "192"
+    },
+    {
+        "id": 4,
+        "name": "Johanna",
+        "lastname": "Johansson",
+        "age": "35",
+        "längd": "158"
     }
 ]
