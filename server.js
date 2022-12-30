@@ -1,44 +1,43 @@
 //Rest API, skapar med express
-const { json } = require('express');
 const express = require('express');
+const fs = require("fs");
 const app = express();
 const port = 3000
-const fs = require("fs");
+app.use(express.json());
 
-const newid = [
 
-    {
-        "id": 5,
-        "name": "Molgan",
-        "lastname": "Johansson",
-        "age": "20",
-        "längd": "120"
-    }
-];
 
-//medelande
+// //medelande
 app.get('/', (req, res) => { res.send('Hello Hello') });
 
-//kopplar till min product.json
-const products = require('./product.json');
-console.log(products);
 
 
 
 
+// /////////////////////////////////////////////////////////////////////// get /////////////////////////////////////////////////////
 
-//visar alla mina id:s
+// //visar alla mina producter
 app.get('/api/products/', (req, res) => {
-    res.status(200).send(products)
+    fs.readFile("./product.json", function (err, data) {
+        let datan = JSON.parse(data)
+        if (err) {
+            res.status(404).send("hjälp mig jonas")
+        }
+        res.status(200).send(datan)
+    })
 });
 
 
 //Hämtar en id från listan
 app.get('/api/products/:id', (req, res) => {
-    const user = products.find(p => p.id == (req.params.id))
-    if (!user)
-        res.status(400).send('Not Found!')
-    res.send(user)
+    fs.readFile("./product.json", function (err, data) {
+        let datan = JSON.parse(data)
+        const user = datan.find(p => p.id == (req.params.id))
+        if (err) {
+            res.status(404).send("hjälp mig jonas")
+        }
+        res.status(200).send(user)
+    })
 });
 
 
@@ -47,51 +46,53 @@ app.get('/api/products/:id', (req, res) => {
 
 
 
-
+/////////////////////////////////////////////////////////////////////// post /////////////////////////////////////////////////////
 app.post('/api/products', (req, res) => {
-    let postid = req.body;
-    postid.id = products.length + 1;
+    fs.readFile('./product.json', function (err, data) {
+        let datan = JSON.parse(data);
+        let postid = req.body;
 
-    products.push(postid);
+        postid.id = datan.length + 1;
+        console.log(datan);
+        datan.push(postid);
 
-    var postid2 = JSON.stringify(products, null, 2);
-    fs.writeFile("./product.json", postid2, (err) => {
-        if (err) throw err;
-        console.log("new id added");
+
+        fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
+            if (err) {
+                res.status(404).send("fel");
+            } else {
+
+                res.status(201).send(postid);
+            }
+        })
     });
-    res.status(201).send(postid);
-
-
-
-
-
-    //name: req.body.name
-
-    // products.push(postid);
-    // res.send(postid)
 });
-// const postid = require('newid');
-// if (!postid)
-//     res.status(404).send('fan oxå')
+
+
 
 
 
 
 // res.status(200).send('Här är producten med id' + req.params.id)
-//
-app.delete('/api/product/:id', (req, res) => {
-    const deleteid = products.find(p => p.id == (req.params.id))
-    if (deleteid)
-        products.indexOf(deleteid)
-    res.status(302).send('deleteid')
-    //else
-    // products.indexOf(deleteid)
-    res.status(404).send('Fail')
-})
+///////////////////////////////////////////////////////////////////////// delete /////////////////////////////////////////////////////
+// app.delete('/api/product/:id', (req, res) => {
+//     const deleteid = products.find(p => p.id == (req.params.id))
+//     if (deleteid)
+//         products.indexOf(deleteid)
+//     res.status(302).send('deleteid')
+//     //else
+//     // products.indexOf(deleteid)
+//     res.status(404).send('Fail')
+// })
 
 
+/////////////////////////////////////////////////////////////////////// put /////////////////////////////////////////////////////
 
-// app.PUT('//api/product/:id', (req, res) => {
+
+// app.put('/api/product/:id', (req, res) => {
+//     fs.readFile("./product.json", function (err, data) {
+//         res.status(404).send()
+//     });
 //     const putid = products
 //     res.send('hej')
 // })
@@ -103,4 +104,4 @@ app.delete('/api/product/:id', (req, res) => {
 
 
 
-app.listen(port, () => console.log('Server is up, your innnn!'));
+app.listen(port, () => console.log('Server is up, your innnn!'))

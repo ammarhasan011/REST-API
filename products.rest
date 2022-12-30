@@ -3,22 +3,21 @@ GET http://localhost:3000/api/products
 ###
 
 
-GET http://localhost:3000/api/products/1
+GET http://localhost:3000/api/products/2
 //kolla bara en id
 ###
 
 
 POST http://localhost:3000/api/products
 Content-Type: application/json
-//Lägg till en id
 
-    {
-        "id": 5,
-        "name": "Molgan",
-        "lastname": "Johansson",
-        "age": "20",
-        "längd": "120"
-    }
+{
+"id": 5,
+"name": "Molgan",
+"lastname": "Johansson",
+"age": "20",
+"längd": "120"
+}
 ###
 
 
@@ -27,6 +26,7 @@ DELETE http://localhost:3000/api/products/4
 ###
 
 PUT http://localhost:3000/api/products/2
+Content-Type: application/json
   //här väljer jag vad jag vill uppdatera i en id
   { 
         "name": "Anton",
