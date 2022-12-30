@@ -1,7 +1,9 @@
 //Rest API, skapar med express
+const { json } = require('express');
 const express = require('express');
 const app = express();
 const port = 3000
+const fs = require("fs");
 
 const newid = [
 
@@ -20,6 +22,9 @@ app.get('/', (req, res) => { res.send('Hello Hello') });
 //kopplar till min product.json
 const products = require('./product.json');
 console.log(products);
+
+
+
 
 
 //visar alla mina id:s
@@ -43,14 +48,28 @@ app.get('/api/products/:id', (req, res) => {
 
 
 
-app.post('/api/products/', (req, res) => {
-    const postid = {
-        id: products.length + 1,
-        name: req.body.name
-    };
+app.post('/api/products', (req, res) => {
+    let postid = req.body;
+    postid.id = products.length + 1;
+
     products.push(postid);
-    res.send(postid)
-})
+
+    var postid2 = JSON.stringify(products, null, 2);
+    fs.writeFile("./product.json", postid2, (err) => {
+        if (err) throw err;
+        console.log("new id added");
+    });
+    res.status(201).send(postid);
+
+
+
+
+
+    //name: req.body.name
+
+    // products.push(postid);
+    // res.send(postid)
+});
 // const postid = require('newid');
 // if (!postid)
 //     res.status(404).send('fan oxå')
@@ -60,7 +79,7 @@ app.post('/api/products/', (req, res) => {
 
 // res.status(200).send('Här är producten med id' + req.params.id)
 //
-app.delete('//api/product/:id', (req, res) => {
+app.delete('/api/product/:id', (req, res) => {
     const deleteid = products.find(p => p.id == (req.params.id))
     if (deleteid)
         products.indexOf(deleteid)
@@ -70,8 +89,10 @@ app.delete('//api/product/:id', (req, res) => {
     res.status(404).send('Fail')
 })
 
+
+
 // app.PUT('//api/product/:id', (req, res) => {
-//    const putid= products
+//     const putid = products
 //     res.send('hej')
 // })
 
