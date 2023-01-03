@@ -5,47 +5,5 @@
     "lastname": "Hasan",
     "age": "22",
     "längd": "170"
-  },
-  {
-    "id": 2,
-    "name": "Erik",
-    "lastname": "Andersson",
-    "age": "32",
-    "längd": "180"
-  },
-  {
-    "id": 3,
-    "name": "Jack",
-    "lastname": "Johansson",
-    "age": "44",
-    "längd": "192"
-  },
-  {
-    "id": 4,
-    "name": "Johanna",
-    "lastname": "Johansson",
-    "age": "35",
-    "längd": "158"
-  },
-  {
-    "id": 5,
-    "name": "Molgan",
-    "lastname": "Johansson",
-    "age": "20",
-    "längd": "120"
-  },
-  {
-    "id": 6,
-    "name": "Molgan",
-    "lastname": "Johansson",
-    "age": "20",
-    "längd": "120"
-  },
-  {
-    "id": 7,
-    "name": "Molgan",
-    "lastname": "Johansson",
-    "age": "20",
-    "längd": "120"
   }
 ]

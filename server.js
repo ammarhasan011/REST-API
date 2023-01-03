@@ -73,29 +73,50 @@ app.post('/api/products', (req, res) => {
 
 
 
-// res.status(200).send('Här är producten med id' + req.params.id)
 ///////////////////////////////////////////////////////////////////////// delete /////////////////////////////////////////////////////
-// app.delete('/api/product/:id', (req, res) => {
-//     const deleteid = products.find(p => p.id == (req.params.id))
-//     if (deleteid)
-//         products.indexOf(deleteid)
-//     res.status(302).send('deleteid')
-//     //else
-//     // products.indexOf(deleteid)
-//     res.status(404).send('Fail')
-// })
+app.delete('/api/products/:id', (req, res) => {
+    fs.readFile("./product.json", function (err, data) {
+        let datan = JSON.parse(data)
+        const deleteid = datan.find(p => p.id == (req.params.id))
+        if (deleteid) {
 
+            const index = datan.indexOf(deleteid)
+            // datan.slice(4);
+            datan.splice(index, 1)
+            res.status(302).send(deleteid)
+        } else {
+            res.status(404)
+        }
+
+        fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
+            if (err) {
+                res.status(404).send("fel")
+            } else {
+
+                res.status(201).send(deleteid)
+            }
+        })
+    })
+})
 
 /////////////////////////////////////////////////////////////////////// put /////////////////////////////////////////////////////
 
 
-// app.put('/api/product/:id', (req, res) => {
-//     fs.readFile("./product.json", function (err, data) {
-//         res.status(404).send()
-//     });
-//     const putid = products
-//     res.send('hej')
-// })
+app.put('/api/products/:id', (req, res) => {
+    fs.readFile("./product.json", function (err, data) {
+        res.status(404).send("hej")
+    });
+    const putid = products
+    res.send('hej')
+
+    fs.writeFile("/product.json", function (err) {
+        res.status(404).send("hej")
+    })
+
+
+
+
+})
 
 
 
