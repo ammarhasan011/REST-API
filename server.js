@@ -6,22 +6,25 @@ const port = 3000
 app.use(express.json());
 
 
+//för att skippa express-generator
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+)
 
-// //medelande
-app.get('/', (req, res) => { res.send('Hello Hello') });
+
+//medelande
+app.get('/', (req, res) => { res.send('Hello World') });
 
 
-
-
-
-// /////////////////////////////////////////////////////////////////////// get /////////////////////////////////////////////////////
-
-// //visar alla mina producter
+///////////////////////////////////////////////////////////////////////// get /////////////////////////////////////////////////////
+//Visar alla mina producter
 app.get('/api/products/', (req, res) => {
     fs.readFile("./product.json", function (err, data) {
         let datan = JSON.parse(data)
         if (err) {
-            res.status(404).send("hjälp mig jonas")
+            res.status(404).send("Kan ej visa datan!")
         }
         res.status(200).send(datan)
     })
@@ -34,15 +37,11 @@ app.get('/api/products/:id', (req, res) => {
         let datan = JSON.parse(data)
         const user = datan.find(p => p.id == (req.params.id))
         if (err) {
-            res.status(404).send("hjälp mig jonas")
+            res.status(404).send("Kan ej visa id:et")
         }
         res.status(200).send(user)
     })
 });
-
-
-
-
 
 
 
@@ -56,21 +55,15 @@ app.post('/api/products', (req, res) => {
         console.log(datan);
         datan.push(postid);
 
-
         fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
             if (err) {
                 res.status(404).send("fel");
             } else {
-
                 res.status(201).send(postid);
             }
         })
     });
 });
-
-
-
-
 
 
 ///////////////////////////////////////////////////////////////////////// delete /////////////////////////////////////////////////////
@@ -79,7 +72,6 @@ app.delete('/api/products/:id', (req, res) => {
         let datan = JSON.parse(data)
         const deleteid = datan.find(p => p.id == (req.params.id))
         if (deleteid) {
-
             const index = datan.indexOf(deleteid)
             // datan.slice(4);
             datan.splice(index, 1)
@@ -88,11 +80,11 @@ app.delete('/api/products/:id', (req, res) => {
             res.status(404)
         }
 
+
         fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
             if (err) {
                 res.status(404).send("fel")
             } else {
-
                 res.status(201).send(deleteid)
             }
         })
@@ -100,8 +92,6 @@ app.delete('/api/products/:id', (req, res) => {
 })
 
 /////////////////////////////////////////////////////////////////////// put /////////////////////////////////////////////////////
-
-
 app.put('/api/products/:id', (req, res) => {
     fs.readFile("./product.json", function (err, data) {
         const datan = JSON.parse(data)
@@ -121,18 +111,12 @@ app.put('/api/products/:id', (req, res) => {
             if (err) {
                 console.log("Gick inte att uppdatera id!")
                 res.status(404).send(err)
-
             } else {
                 res.status(200).send("uppdaterad id" + product)
             }
         })
     });
 })
-
-
-
-
-
 
 
 
