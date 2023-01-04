@@ -104,18 +104,29 @@ app.delete('/api/products/:id', (req, res) => {
 
 app.put('/api/products/:id', (req, res) => {
     fs.readFile("./product.json", function (err, data) {
-        res.status(404).send("hej")
+        const datan = JSON.parse(data)
+
+        //kolla att vi har producten 
+        const product = datan.find(p => p.id == (req.params.id))
+        if (!product) {
+            res.status(404).send("producten finns inte")
+        }
+
+        product.name = req.body.name
+        product.lastname = req.body.lastname
+        res.send(product)
+
+
+        fs.writeFile('./product.json', JSON.stringify(datan, null, 2), function (err) {
+            if (err) {
+                console.log("Gick inte att uppdatera id!")
+                res.status(404).send(err)
+
+            } else {
+                res.status(200).send("uppdaterad id" + product)
+            }
+        })
     });
-    const putid = products
-    res.send('hej')
-
-    fs.writeFile("/product.json", function (err) {
-        res.status(404).send("hej")
-    })
-
-
-
-
 })
 
 
