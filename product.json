@@ -1,30 +1,30 @@
 [
   {
     "id": 1,
-    "name": "Ammar",
-    "lastname": "Hasan",
-    "age": "22",
-    "längd": "170"
+    "name": "Samsung Q60B 4K QLED TV",
+    "pris": "7990",
+    "storlek": "65",
+    "år": "2022"
   },
   {
     "id": 2,
-    "name": "Erik",
-    "lastname": "Andersson",
-    "age": "32",
-    "längd": "180"
+    "name": "LG NANO766 4K LED TV",
+    "pris": "13490",
+    "storlek": "70",
+    "år": "2021"
   },
   {
     "id": 3,
-    "name": "Jack",
-    "lastname": "Johansson",
-    "age": "44",
-    "längd": "192"
+    "name": "Sony A95K 4K QD-OLED TV",
+    "pris": "33990",
+    "storlek": "75",
+    "år": "2022"
   },
   {
     "id": 4,
-    "name": "Johanna",
-    "lastname": "Johansson",
-    "age": "35",
-    "längd": "158"
+    "name": "Andersson 2K TV",
+    "pris": "4990",
+    "storlek": "45",
+    "år": "2020"
   }
 ]
