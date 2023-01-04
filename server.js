@@ -15,7 +15,7 @@ app.use(
 
 
 //medelande
-app.get('/', (req, res) => { res.send('Hello World') });
+app.get('/', (req, res) => { res.send('Hello World') })
 
 
 ///////////////////////////////////////////////////////////////////////// get /////////////////////////////////////////////////////
@@ -28,7 +28,7 @@ app.get('/api/products/', (req, res) => {
         }
         res.status(200).send(datan)
     })
-});
+})
 
 
 //Hämtar en id från listan
@@ -41,32 +41,34 @@ app.get('/api/products/:id', (req, res) => {
         }
         res.status(200).send(user)
     })
-});
+})
 
 
 
 /////////////////////////////////////////////////////////////////////// post /////////////////////////////////////////////////////
+//lägger till en ny product
 app.post('/api/products', (req, res) => {
     fs.readFile('./product.json', function (err, data) {
-        let datan = JSON.parse(data);
-        let postid = req.body;
+        let datan = JSON.parse(data)
+        let postid = req.body
 
-        postid.id = datan.length + 1;
-        console.log(datan);
-        datan.push(postid);
+        postid.id = datan.length + 1
+        console.log(datan)
+        datan.push(postid)
 
         fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
             if (err) {
-                res.status(404).send("fel");
+                res.status(404).send("fel")
             } else {
-                res.status(201).send(postid);
+                res.status(201).send(postid)
             }
         })
-    });
-});
+    })
+})
 
 
 ///////////////////////////////////////////////////////////////////////// delete /////////////////////////////////////////////////////
+//tar bort en product
 app.delete('/api/products/:id', (req, res) => {
     fs.readFile("./product.json", function (err, data) {
         let datan = JSON.parse(data)
@@ -92,6 +94,7 @@ app.delete('/api/products/:id', (req, res) => {
 })
 
 /////////////////////////////////////////////////////////////////////// put /////////////////////////////////////////////////////
+//uppdaterar och ändrar på en product
 app.put('/api/products/:id', (req, res) => {
     fs.readFile("./product.json", function (err, data) {
         const datan = JSON.parse(data)
@@ -115,7 +118,7 @@ app.put('/api/products/:id', (req, res) => {
                 res.status(200).send("uppdaterad id" + product)
             }
         })
-    });
+    })
 })
 
 
