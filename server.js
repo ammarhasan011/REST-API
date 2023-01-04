@@ -77,7 +77,7 @@ app.delete('/api/products/:id', (req, res) => {
             const index = datan.indexOf(deleteid)
             // datan.slice(4);
             datan.splice(index, 1)
-            res.status(302).send(deleteid)
+            res.status(200).send(deleteid)
         } else {
             res.status(404)
         }
@@ -85,9 +85,9 @@ app.delete('/api/products/:id', (req, res) => {
 
         fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
             if (err) {
-                res.status(404).send("fel")
+                res.status(404).send("Gick ej att ta bort")
             } else {
-                res.status(201).send(deleteid)
+                res.status(200).send(deleteid)
             }
         })
     })
