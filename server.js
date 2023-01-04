@@ -106,7 +106,8 @@ app.put('/api/products/:id', (req, res) => {
         }
 
         product.name = req.body.name
-        product.lastname = req.body.lastname
+        product.pris = req.body.pris
+        product.storlek = req.body.storlek
         res.send(product)
 
 

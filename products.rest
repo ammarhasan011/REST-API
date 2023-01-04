@@ -14,10 +14,10 @@ Content-Type: application/json
 
 {
 "id": 5,
-"name": "Molgan",
-"lastname": "Johansson",
-"age": "20",
-"längd": "120"
+"name": "Sony 4K QL smart TV",
+"pris": "8990 Kr",
+"storlek": "65 tum",
+"år": "2021"
 }
 ###
 
@@ -32,7 +32,8 @@ Content-Type: application/json
 //här väljer jag vad jag vill uppdatera med hjälp av en id
 
 { 
-"name": "uppdaterad",
-"lastname": "uppdaterad1"
+"name": "Andersson 1K TV",
+"pris": "1000 Kr",
+"storlek": "10 tum"
 }
 ###
