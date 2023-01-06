@@ -15,9 +15,9 @@ Content-Type: application/json
 {
 "id": 5,
 "name": "Sony 4K QL smart TV",
-"pris": "8990 Kr",
-"storlek": "65 tum",
-"år": "2021"
+"price": "8990 Kr",
+"size": "65 tum",
+"year": "2021"
 }
 ###
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 { 
 "name": "Andersson 1K TV",
-"pris": "1000 Kr",
-"storlek": "10 tum"
+"price": "1000 Kr",
+"size": "10 tum"
 }
 ###

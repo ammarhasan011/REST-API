@@ -2,29 +2,29 @@
   {
     "id": 1,
     "name": "Samsung Q60B 4K QLED TV",
-    "pris": "7990 Kr",
-    "storlek": "65 tum",
-    "år": "2022"
+    "price": "7990 Kr",
+    "size": "65 tum",
+    "year": "2022"
   },
   {
     "id": 2,
     "name": "LG NANO766 4K LED TV",
-    "pris": "13490 Kr",
-    "storlek": "70 tum",
-    "år": "2021"
+    "price": "13490 Kr",
+    "size": "70 tum",
+    "year": "2021"
   },
   {
     "id": 3,
     "name": "Sony A95K 4K QD-OLED TV",
-    "pris": "33990 Kr",
-    "storlek": "75 tum",
-    "år": "2022"
+    "price": "33990 Kr",
+    "size": "75 tum",
+    "year": "2022"
   },
   {
     "id": 4,
     "name": "Andersson 4K TV",
-    "pris": "3000 Kr",
-    "storlek": "40 tum",
-    "år": "2020"
+    "price": "3000 Kr",
+    "size": "40 tum",
+    "year": "2020"
   }
 ]

@@ -6,13 +6,6 @@ const port = 3000
 app.use(express.json());
 
 
-//för att skippa express-generator
-app.use(
-    express.urlencoded({
-        extended: true,
-    })
-)
-
 
 //medelande
 app.get('/', (req, res) => { res.send('Hello World') })
@@ -24,7 +17,7 @@ app.get('/api/products/', (req, res) => {
     fs.readFile("./product.json", function (err, data) {
         let datan = JSON.parse(data)
         if (err) {
-            res.status(404).send("Kan ej visa datan!")
+            res.status(404).send("Cannot display info!")
         }
         res.status(200).send(datan)
     })
@@ -37,7 +30,7 @@ app.get('/api/products/:id', (req, res) => {
         let datan = JSON.parse(data)
         const user = datan.find(p => p.id == (req.params.id))
         if (err) {
-            res.status(404).send("Kan ej visa id:et")
+            res.status(404).send("Cannot display info!")
         }
         res.status(200).send(user)
     })
@@ -58,7 +51,7 @@ app.post('/api/products', (req, res) => {
 
         fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
             if (err) {
-                res.status(404).send("fel")
+                res.status(404).send("errorrrrr")
             } else {
                 res.status(201).send(postid)
             }
@@ -85,7 +78,7 @@ app.delete('/api/products/:id', (req, res) => {
 
         fs.writeFile("./product.json", JSON.stringify(datan, null, 2), function (err) {
             if (err) {
-                res.status(404).send("Gick ej att ta bort")
+                res.status(404).send("Cannot delete info!")
             } else {
                 res.status(200).send(deleteid)
             }
@@ -102,25 +95,35 @@ app.put('/api/products/:id', (req, res) => {
         //kolla att vi har producten 
         const product = datan.find(p => p.id == (req.params.id))
         if (!product) {
-            res.status(404).send("producten finns inte")
+            res.status(404).send("the product does not exist")
         }
 
         product.name = req.body.name
-        product.pris = req.body.pris
-        product.storlek = req.body.storlek
+        product.price = req.body.price
+        product.size = req.body.size
         res.send(product)
 
 
         fs.writeFile('./product.json', JSON.stringify(datan, null, 2), function (err) {
             if (err) {
-                console.log("Gick inte att uppdatera id!")
+                console.log("Failed to update id!!")
                 res.status(404).send(err)
             } else {
-                res.status(200).send("uppdaterad id" + product)
+                res.status(200).send("updated id" + product)
             }
         })
     })
 })
+
+////////////////////////////////////////////////////////////////////// VG /////////////////////////////////////////////////////
+//för att skippa express-generator
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+)
+
+
 
 
 
