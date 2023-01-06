@@ -22,7 +22,7 @@ Content-Type: application/json
 ###
 
 
-DELETE http://localhost:3000/api/products/5
+DELETE http://localhost:3000/api/products/3
 //Ta bort en id
 ###
 
