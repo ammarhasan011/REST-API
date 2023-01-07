@@ -1,4 +1,3 @@
-/////////////////////////////////////////////////////////////////G-delen////////////////////////////////////////////////////////////////////
 /////////////////title/////////////////
 
 Hasan TV AB :)
@@ -23,17 +22,14 @@ I products.rest testar jag mina olika endpoints och kollar om jag får felmedela
 
 
 
-När man klonar ner projectet så ska man köra npm install i terinalen för att ladda ner node_moduls för att kunna köra projectet corecct.
+När man klonar ner projectet så ska man köra npm install i terinalen för att ladda ner node_moduls för att kunna köra projectet corecct. Sedan behöbver man skriva npm start vilket kör "nodemon server.js" för att slippa köra om servern varje gång med start "server.js".
 
 
 
 
 
-nodemon för start och uppdatera direkt istället för node server.js
-
-Jag börjar med att skapa en REST-API i NodeJS med express.
 Jag installerar express i terminalen sedan använder jag npm start för att starta min server.
-Jag skapar 6 st endpoints get, get, get, post, delete och put.
+
 
 
 
