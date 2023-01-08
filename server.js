@@ -104,6 +104,7 @@ app.put('/api/products/:id', (req, res) => {
         product.name = req.body.name
         product.price = req.body.price
         product.size = req.body.size
+        product.year = req.body.year
         res.send(product)
 
 
