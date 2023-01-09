@@ -38,8 +38,12 @@ Jag uppfyller alla krav, mina klarade krav är:
 6. Git & GitHub använts.
 7. Projektmappen innehåller en README.md fil.
 
-issue
 
+/////////////////issue////////////////
+
+Jag har fått två problem i slutet som jag la märke till vilket är att jag får en crash vid Put och Delete, men allt funkar som de ska.
+
+felmedelandet:
 "
 Node.js v18.12.1
 [nodemon] app crashed - waiting for file changes before starting...
