@@ -57,5 +57,6 @@ Server is up, your innnn!
 /////////////////////////////////////////////////////////////////VG-delen////////////////////////////////////////////////////////////////////
 
 1. Alla punkter i G-delen är uppfyllda.
-2. 
-3. 
+2. Ett klient-gränssnitt har byggts som anropa API:ets alla olika endpoints och presentera datan, redigeringsformulär fyller i med befintlig information.
+3. Ytterligare en GET endpoint har byggts för att hämta ett specifikt objekt
+
