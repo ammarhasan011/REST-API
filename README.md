@@ -38,6 +38,17 @@ Jag uppfyller alla krav, mina klarade krav är:
 6. Git & GitHub använts.
 7. Projektmappen innehåller en README.md fil.
 
+issue
+
+"
+Node.js v18.12.1
+[nodemon] app crashed - waiting for file changes before starting...
+[nodemon] restarting due to changes...
+[nodemon] starting `node server.js`
+Server is up, your innnn!
+"
+
+
 
 /////////////////////////////////////////////////////////////////VG-delen////////////////////////////////////////////////////////////////////
 
