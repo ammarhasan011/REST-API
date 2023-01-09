@@ -14,29 +14,32 @@ I min project så har jag olika producter "Tv:s" i en json fil product.json, var
 3. I trejde get:en visas en specifik id exempelvis http://localhost:3000/api/products/1
 4. I post så lägger jag till en ny product med namn, pris, storlek osv.
 5. I delete tar jag bort en product genom att bestämma vilken id ska bort.
-6. Och sist men inte minst så använder jag put för att uppdatera några egenskaper i en product som namn, pris och storlek.
+6. Och sist men inte minst så använder jag put för att uppdatera egenskaper i en product som namn, pris och storlek.
 
-I products.rest testar jag mina olika endpoints och kollar om jag får felmedelande 404 eller om det blir godkänt 202, med hjälp av en tilläg i VS Code kallad för "REST Client". I package.json kan man se att jag ändrade start till "nodemon server.js", för att slippa uppadera servern om och om. Projecten är kopplad till github och git används därför skapar jag en .gitignore fil för att inte ha med alla node_modules.
+I products.rest testar jag mina olika endpoints och kollar om jag får felmedelande 404 eller om det blir godkänt 202, med hjälp av en tilläg i VS Code kallad för "REST Client". I package.json kan man se att jag ändrade start till "nodemon server.js", för att slippa uppadera servern om och om. Projecten är kopplad till github, och git används därför skapar jag en .gitignore fil för att inte ha med alla node_modules.
 
 
 /////////////////info om hur projektet byggs och körs/////////////////
 
-När man klonar ner projectet så ska man köra "npm install" i terinalen för att ladda ner node_moduls för att kunna köra projectet corecct. Sedan behöbver man skriva npm start vilket kör "nodemon server.js" för att slippa köra om servern varje gång med start "server.js".
+När man klonar ner projectet så ska man köra "npm install" i terinalen för att ladda ner node_moduls för att kunna köra projectet corecct. Sedan behöver man skriva npm start vilket kör "nodemon server.js" för att slippa köra om servern varje gång med node "server.js".
 sedan kan man se hur det ser ut i localhost genom http://localhost:3000/api/products sedan kan man se specifika id: om man lägger till en 
 "/2" i slutet av länken.
+
+ett tips är att installera en tilläg i chrome som gör att de enklare och presentera datan i localhost istället för att presentera allting på en rad tilläget heter "JSON Formatter".
 
 
 /////////////////vilka krav som är uppfyllda/////////////////
 
 Jag uppfyller alla krav, mina klarade krav är:
 
-1. Projekten innehåller minst 4 st endpoints.
+1. Projekten innehåller minst 4 st endpoints GET, POST, PUT & DELETE.
 2. Mina endpoints nås via en REST Client fil.
 3. Min data är sparad i en JSON fil "product.json"
 4. Datan uppdateras när något tas bort, upptaders eller läggs till.
-5. ////////////API-et svara med 404 om datan saknas.
+5. API-et svara med 404 om datan saknas.
 6. Git & GitHub använts.
 7. Projektmappen innehåller en README.md fil.
+8. uppgiften lämnas in i tid
 
 
 /////////////////issue////////////////
@@ -55,8 +58,8 @@ Server is up, your innnn!
 
 
 /////////////////////////////////////////////////////////////////VG-delen////////////////////////////////////////////////////////////////////
+/////////////////krav som är klara
 
 1. Alla punkter i G-delen är uppfyllda.
 2. Ett klient-gränssnitt har byggts som anropa API:ets alla olika endpoints och presentera datan, redigeringsformulär fyller i med befintlig information.
-3. Ytterligare en GET endpoint har byggts för att hämta ett specifikt objekt
-
+3. Ytterligare en GET endpoint har byggts för att hämta ett specifikt objekt.
